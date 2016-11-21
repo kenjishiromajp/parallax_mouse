@@ -29,6 +29,14 @@ function foreach(collection,callback){
     }
 }
 
+function calcViewport(){
+    var scale = window.innerHeight/1140;
+    setStyle($("#main .container"),{ transform: "translate(-50%,-50%) scale("+scale+")" });
+}
+
+window.onresize= function(){
+    calcViewport();
+}
 window.onload = function () {
     $("body").addEventListener("mousemove", function (ev) {
         var x = ev.pageX - parseInt(offset(this).left);
@@ -85,5 +93,6 @@ window.onload = function () {
 
 
     });
+    calcViewport();
     new Vivus('lettering', { duration: 200, type: "sync", animTimingFunction: Vivus.EASE_OUT }).play();
 };

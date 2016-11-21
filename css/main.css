@@ -48,15 +48,15 @@ body{
 }
 
 
-.container{
+#main .container{
+	position: absolute;
+	height: 870px;
 	width: 1140px;
 	margin: auto;
 	padding: 0px 15px;
-}
-
-#main .container{
-	position: relative;
-	height: 870px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
 }
 
 #escafandro,#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9,#b10,#b11,#cadeira{
