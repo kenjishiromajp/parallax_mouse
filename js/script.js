@@ -34,11 +34,17 @@ function calcViewport(){
     setStyle($("#main .container"),{ transform: "translate(-50%,-50%) scale("+scale+")" });
 }
 
+function showButterflies(){
+    $("#main").classList.remove("hidden-butterflies");
+}
+$("#main").classList.add("hidden-butterflies");
+
 window.onresize= function(){
     calcViewport();
 }
 window.onload = function () {
-    $("body").addEventListener("mousemove", function (ev) {
+    $("body").addEventListener("mousemove", function (ev){
+        
         var x = ev.pageX - parseInt(offset(this).left);
         var y = ev.pageY - parseInt(offset(this).top);
         var cWidth = this.offsetWidth;
@@ -74,6 +80,21 @@ window.onload = function () {
         });
 
 
+
+        setPosition($("#shadow_path1"),4,6);
+        setPosition($("#shadow_row2"),6,8);
+        setPosition($("#shadow_row3"),4,6);
+
+         setPosition($("#content_path1"),10,12);
+        setPosition($("#content_row2"),8,10);
+        setPosition($("#content_row3"),10,12);
+
+        setPosition($("#escafandro"),15,100);
+        setPosition($("#cadeira"),12,-20);
+
+        if($a(".hidden-butterflies").length)
+            return;
+
         setPosition($a("#b1,#b5"),5,5);
         setPosition($("#b2"),3,5);
         setPosition($("#b3"),10,10);
@@ -84,15 +105,11 @@ window.onload = function () {
         setPosition($("#b9"),9,9);
         setPosition($("#b10"),18,18);
         setPosition($("#b11"),12,18);
-        setPosition($("#escafandro"),15,100);
-        setPosition($("#cadeira"),12,-20);
-
-        setPosition($("#lettering .shadow"),15,20);
-        setPosition($("#lettering .content"),8,12);
-
 
 
     });
     calcViewport();
-    new Vivus('lettering', { duration: 200, type: "sync", animTimingFunction: Vivus.EASE_OUT }).play();
+    new Vivus('lettering', { duration: 200, type: "sync", animTimingFunction: Vivus.EASE_OUT }).play(_=>{
+        showButterflies();
+    });
 };
