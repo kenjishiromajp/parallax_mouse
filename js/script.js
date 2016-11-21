@@ -1,160 +1,89 @@
-$(function () {
-    $("body").mousemove(function (ev) {
-        var x = ev.pageX - parseInt($(this).css("marginLeft"));
-        var y = ev.pageY - parseInt($(this).css("marginTop"));
-        var cWidth = $(this).width();
-        var cHeight = $(this).height();
+function $(q) {
+    return document.querySelector(q);
+};
+function $a(q) {
+    return document.querySelectorAll(q);
+};
+function css(el, prop) {
+    var style = window.getComputedStyle(element);
+    return style[prop];
+}
+function setStyle(el,props){
+    for(key in props){
+        el.style[key] = props[key];
+    }
+    return el;
+}
+function sa(el,atr,va){
+    el.setAttribute(atr,va);
+}
+function offset(el) {
+    return el.getBoundingClientRect();
+}
+function foreach(collection,callback){
+    if(!(collection instanceof NodeList || collection instanceof Array) && collection instanceof String)
+        collection = $a(collection);
+    for (var index = 0; index < collection.length; index++) {
+        var element = collection[index];
+        callback(element,index);
+    }
+}
 
-        $("#main .container > *").attr("style", "");
+window.onload = function () {
+    $("body").addEventListener("mousemove", function (ev) {
+        var x = ev.pageX - parseInt(offset(this).left);
+        var y = ev.pageY - parseInt(offset(this).top);
+        var cWidth = this.offsetWidth;
+        var cHeight = this.offsetHeight;
 
-
-        $.each($("#b1,#b5"), function (index) {
+        function calcPosition(porcentagemX,porcentagemY){
             var calc;
-            calc = ((cWidth / 2) - x) / 5;
-            calc = (parseInt($(this).css("left")) + calc) + "px";
-            $(this).css({ left: calc });
+            return {
+                x: ((cWidth / 2) - x) / porcentagemX,
+                y: ((cHeight / 2) - y) / porcentagemY,
+            };
+        }
 
-            calc = ((cHeight / 2) - y) / 5;
-            calc = (parseInt($(this).css("top")) + calc) + "px";
-            $(this).css({ top: calc });
+        function setPosition(collection,porcentagemX,porcentagemY){
+            if(!(collection instanceof NodeList || collection instanceof Array) && collection instanceof String)
+                collection = $a(collection);
+            if(collection instanceof NodeList){
+                foreach(collection,(el,index)=>{
+                    var pos = calcPosition(porcentagemX,porcentagemY);
+                    setStyle(el,{ transform: "translate(" + pos.x + "px," + pos.y + "px)" });
+                });
+            }else{
+                if(collection instanceof Node)
+                    var el = collection;
+                var pos = calcPosition(porcentagemX,porcentagemY);
+                setStyle(el,{ transform: "translate(" + pos.x + "px," + pos.y + "px)" });
+            }
+
+        }
+
+        foreach($a("#main .container > *"),el=>{
+            sa(el,"style", "");
         });
 
 
-        $.each($("#b2"), function (index) {
-            var calc;
-            calc = ((cWidth / 2) - x) / 3;
-            calc = (parseInt($(this).css("left")) + calc) + "px";
-            $(this).css({ left: calc });
+        setPosition($a("#b1,#b5"),5,5);
+        setPosition($("#b2"),3,5);
+        setPosition($("#b3"),10,10);
+        setPosition($("#b4"),7,7);
+        setPosition($("#b6"),12,11);
+        setPosition($("#b7"),18,18);
+        setPosition($("#b8"),12,12);
+        setPosition($("#b9"),9,9);
+        setPosition($("#b10"),18,18);
+        setPosition($("#b11"),12,18);
+        setPosition($("#escafandro"),15,100);
+        setPosition($("#cadeira"),12,-20);
 
-            calc = ((cHeight / 2) - y) / 5;
-            calc = (parseInt($(this).css("top")) + calc) + "px";
-            $(this).css({ top: calc });
-        });
-
-
-
-        $.each($("#b3"), function (index) {
-            var calc;
-            calc = ((cWidth / 2) - x) / 10;
-            calc = (parseInt($(this).css("left")) + calc) + "px";
-            $(this).css({ left: calc });
-
-            calc = ((cHeight / 2) - y) / 10;
-            calc = (parseInt($(this).css("top")) + calc) + "px";
-            $(this).css({ top: calc });
-        });
-
-
-        $.each($("#b4"), function (index) {
-            var calc;
-            calc = ((cWidth / 2) - x) / 7;
-            calc = (parseInt($(this).css("left")) + calc) + "px";
-            $(this).css({ left: calc });
-
-            calc = ((cHeight / 2) - y) / 7;
-            calc = (parseInt($(this).css("top")) + calc) + "px";
-            $(this).css({ top: calc });
-        });
-
-
-        $.each($("#b6"), function (index) {
-            var calc;
-            calc = ((cWidth / 2) - x) / 12;
-            calc = (parseInt($(this).css("left")) + calc) + "px";
-            $(this).css({ left: calc });
-
-            calc = ((cHeight / 2) - y) / 11;
-            calc = (parseInt($(this).css("top")) + calc) + "px";
-            $(this).css({ top: calc });
-        });
-
-        $.each($("#b7"), function (index) {
-            var calc;
-            calc = ((cWidth / 2) - x) / 18;
-            calc = (parseInt($(this).css("left")) + calc) + "px";
-            $(this).css({ left: calc });
-
-            calc = ((cHeight / 2) - y) / 18;
-            calc = (parseInt($(this).css("top")) + calc) + "px";
-            $(this).css({ top: calc });
-        });
-
-        $.each($("#b8"), function (index) {
-            var calc;
-            calc = ((cWidth / 2) - x) / 12;
-            calc = (parseInt($(this).css("left")) + calc) + "px";
-            $(this).css({ left: calc });
-
-            calc = ((cHeight / 2) - y) / 12;
-            calc = (parseInt($(this).css("top")) + calc) + "px";
-            $(this).css({ top: calc });
-        });
-
-
-        $.each($("#b9"), function (index) {
-            var calc;
-            calc = ((cWidth / 2) - x) / 9;
-            calc = (parseInt($(this).css("left")) + calc) + "px";
-            $(this).css({ left: calc });
-
-            calc = ((cHeight / 2) - y) / 9;
-            calc = (parseInt($(this).css("top")) + calc) + "px";
-            $(this).css({ top: calc });
-        });
-
-        $.each($("#b10"), function (index) {
-            var calc;
-            calc = ((cWidth / 2) - x) / 18;
-            calc = (parseInt($(this).css("left")) + calc) + "px";
-            $(this).css({ left: calc });
-
-            calc = ((cHeight / 2) - y) / 18;
-            calc = (parseInt($(this).css("top")) + calc) + "px";
-            $(this).css({ top: calc });
-        });
-
-        $.each($("#b11"), function (index) {
-            var calc;
-            calc = ((cWidth / 2) - x) / 12;
-            calc = (parseInt($(this).css("left")) + calc) + "px";
-            $(this).css({ left: calc });
-
-            calc = ((cHeight / 2) - y) / 18;
-            calc = (parseInt($(this).css("top")) + calc) + "px";
-            $(this).css({ top: calc });
-        });
-
-        $.each($("#escafandro"), function (index) {
-            var calc;
-            calc = ((cWidth / 2) - x) / 15;
-            calc = (parseInt($(this).css("left")) + calc) + "px";
-            $(this).css({ left: calc });
-        });
-
-        $.each($("#cadeira"), function (index) {
-            var calc;
-            calc = ((cWidth / 2) - x) / 12;
-            calc = (parseInt($(this).css("left")) + calc) + "px";
-            $(this).css({ left: calc });
-
-            calc = ((cHeight / 2) - y) / 20;
-            calc = (parseInt($(this).css("bottom")) + calc) + "px";
-            $(this).css({ bottom: calc });
-        });
-
-        var calc;
-        var newX = ((cWidth / 2) - x) / 15;
-        var newY = ((cHeight / 2) - y) / 20;
-        $("#lettering .shadow").css({ transform: "translate("+newX+"px,"+newY+"px)" });
-
-
-        var calc;
-        var newX = ((cWidth / 2) - x) / 8;
-        var newY = ((cHeight / 2) - y) / 12;
-        $("#lettering .content").css({ transform: "translate("+newX+"px,"+newY+"px)" });
+        setPosition($("#lettering .shadow"),15,20);
+        setPosition($("#lettering .content"),8,12);
 
 
 
     });
-     new Vivus('lettering', {duration: 200, type: "sync", animTimingFunction: Vivus.EASE_OUT}).play();
-})
+    new Vivus('lettering', { duration: 200, type: "sync", animTimingFunction: Vivus.EASE_OUT }).play();
+};
