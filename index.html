@@ -1,0 +1,229 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Parallax</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		$(function (){
+			$("body").mousemove(function (ev){
+				var x = ev.pageX - parseInt($(this).css("marginLeft"));
+				var y = ev.pageY - parseInt($(this).css("marginTop"));
+				var cWidth = $(this).width();
+				var cHeight = $(this).height();
+				// console.log("X:"+x+",y:"+y);
+				$("#main .container > *").attr("style","");
+
+				
+				$.each($("#b1,#b5"),function (index){
+					var calc;
+					calc = ((cWidth/2)-x)/5;
+					calc = (parseInt($(this).css("left"))+calc)+"px";
+					$(this).css({left: calc});
+
+					calc = ((cHeight/2)-y)/5;
+					calc = (parseInt($(this).css("top"))+calc)+"px";
+					$(this).css({top: calc});
+				});
+
+
+				$.each($("#b2"),function (index){
+					var calc;
+					calc = ((cWidth/2)-x)/3;
+					calc = (parseInt($(this).css("left"))+calc)+"px";
+					$(this).css({left: calc});
+
+					calc = ((cHeight/2)-y)/5;
+					calc = (parseInt($(this).css("top"))+calc)+"px";
+					$(this).css({top: calc});
+				});
+
+
+
+				$.each($("#b3"),function (index){
+					var calc;
+					calc = ((cWidth/2)-x)/10;
+					calc = (parseInt($(this).css("left"))+calc)+"px";
+					$(this).css({left: calc});
+
+					calc = ((cHeight/2)-y)/10;
+					calc = (parseInt($(this).css("top"))+calc)+"px";
+					$(this).css({top: calc});
+				});
+
+
+				$.each($("#b4"),function (index){
+					var calc;
+					calc = ((cWidth/2)-x)/7;
+					calc = (parseInt($(this).css("left"))+calc)+"px";
+					$(this).css({left: calc});
+
+					calc = ((cHeight/2)-y)/7;
+					calc = (parseInt($(this).css("top"))+calc)+"px";
+					$(this).css({top: calc});
+				});
+
+
+				$.each($("#b6"),function (index){
+					var calc;
+					calc = ((cWidth/2)-x)/12;
+					calc = (parseInt($(this).css("left"))+calc)+"px";
+					$(this).css({left: calc});
+
+					calc = ((cHeight/2)-y)/11;
+					calc = (parseInt($(this).css("top"))+calc)+"px";
+					$(this).css({top: calc});
+				});
+
+				$.each($("#b7"),function (index){
+					var calc;
+					calc = ((cWidth/2)-x)/18;
+					calc = (parseInt($(this).css("left"))+calc)+"px";
+					$(this).css({left: calc});
+
+					calc = ((cHeight/2)-y)/18;
+					calc = (parseInt($(this).css("top"))+calc)+"px";
+					$(this).css({top: calc});
+				});
+
+				$.each($("#b8"),function (index){
+					var calc;
+					calc = ((cWidth/2)-x)/12;
+					calc = (parseInt($(this).css("left"))+calc)+"px";
+					$(this).css({left: calc});
+
+					calc = ((cHeight/2)-y)/12;
+					calc = (parseInt($(this).css("top"))+calc)+"px";
+					$(this).css({top: calc});
+				});
+
+
+				$.each($("#b9"),function (index){
+					var calc;
+					calc = ((cWidth/2)-x)/9;
+					calc = (parseInt($(this).css("left"))+calc)+"px";
+					$(this).css({left: calc});
+
+					calc = ((cHeight/2)-y)/9;
+					calc = (parseInt($(this).css("top"))+calc)+"px";
+					$(this).css({top: calc});
+				});
+
+				$.each($("#b10"),function (index){
+					var calc;
+					calc = ((cWidth/2)-x)/18;
+					calc = (parseInt($(this).css("left"))+calc)+"px";
+					$(this).css({left: calc});
+
+					calc = ((cHeight/2)-y)/18;
+					calc = (parseInt($(this).css("top"))+calc)+"px";
+					$(this).css({top: calc});
+				});
+
+				$.each($("#b11"),function (index){
+					var calc;
+					calc = ((cWidth/2)-x)/12;
+					calc = (parseInt($(this).css("left"))+calc)+"px";
+					$(this).css({left: calc});
+
+					calc = ((cHeight/2)-y)/18;
+					calc = (parseInt($(this).css("top"))+calc)+"px";
+					$(this).css({top: calc});
+				});
+
+				$.each($("#escafandro"),function (index){
+					var calc;
+					calc = ((cWidth/2)-x)/15;
+					calc = (parseInt($(this).css("left"))+calc)+"px";
+					$(this).css({left: calc});
+				});
+
+				$.each($("#cadeira"),function (index){
+					var calc;
+					calc = ((cWidth/2)-x)/12;
+					calc = (parseInt($(this).css("left"))+calc)+"px";
+					$(this).css({left: calc});
+
+					calc = ((cHeight/2)-y)/20;
+					calc = (parseInt($(this).css("bottom"))+calc)+"px";
+					$(this).css({bottom: calc});
+				});
+
+			})
+		})
+	</script>
+</head>
+<body>
+	<div id="main">
+		<div class="container">
+			<!-- escafandro -->
+			<div id="escafandro">
+				<img src="img/escafandro.png" alt="escafandro"/>
+			</div>
+
+			<!-- b1 -->
+			<div id="b1">
+				<img src="img/b1.png" alt="b1"/>
+			</div>
+
+			<!-- b2 -->
+			<div id="b2">
+				<img src="img/b2.png" alt="b2"/>
+			</div>
+
+			<!-- b3 -->
+			<div id="b3">
+				<img src="img/b3.png" alt="b3"/>
+			</div>
+
+			<!-- b4 -->
+			<div id="b4">
+				<img src="img/b4.png" alt="b4"/>
+			</div>
+
+			<!-- b6 -->
+			<div id="b5">
+				<img src="img/b5.png" alt="b6"/>
+			</div>
+
+			<!-- b6 -->
+			<div id="b6">
+				<img src="img/b6.png" alt="b6"/>
+			</div>
+
+			<!-- b7 -->
+			<div id="b7">
+				<img src="img/b7.png" alt="b7"/>
+			</div>
+
+			<!-- b8 -->
+			<div id="b8">
+				<img src="img/b8.png" alt="b8"/>
+			</div>
+
+			<!-- b9 -->
+			<div id="b9">
+				<img src="img/b9.png" alt="b9"/>
+			</div>
+
+			<!-- b10 -->
+			<div id="b10">
+				<img src="img/b10.png" alt="b10"/>
+			</div>
+
+			<!-- b10 -->
+			<div id="b11">
+				<img src="img/b11.png" alt="b11"/>
+			</div>
+
+
+			<!-- cadeira -->
+			<div id="cadeira">
+				<img src="img/cadeira.png" alt="cadeira"/>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

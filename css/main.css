@@ -1,0 +1,166 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	outline: none;
+	border: none;
+	font-family: "Arial";
+	color: white;
+}
+
+body{
+	background: url(../img/bg.png) no-repeat;
+	background-size: cover;
+	-ms-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+@keyframes floatTop{
+	0%{margin-top: -15%;}
+	100%{margin-top: 15%;}
+}
+@-webkit-keyframes floatTop{
+	0%{margin-top: -15%;}
+	100%{margin-top: 15%;}
+}
+
+
+@keyframes floatTop2{
+	0%{margin-top: -10%;}
+	100%{margin-top: 10%;}
+}
+@-webkit-keyframes floatTop2{
+	0%{margin-top: -10%;}
+	100%{margin-top: 10%;}
+}
+
+
+@keyframes floatTop3{
+	0%{margin-top: -10%;}
+	100%{margin-top: 10%;}
+}
+@-webkit-keyframes floatTop3{
+	0%{margin-top: -10%;}
+	100%{margin-top: 10%;}
+}
+
+
+.container{
+	width: 1140px;
+	margin: auto;
+	padding: 0px 15px;
+}
+
+#main .container{
+	position: relative;
+	height: 870px;
+}
+
+#escafandro,#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9,#b10,#b11,#cadeira{
+	position: absolute;
+	display: block;
+}
+
+#b1 img,#b7 img,#b8 img,#b10 img{
+	animation: floatTop2 2s infinite ease-in-out alternate;
+	-webkit-animation: floatTop2 2s infinite ease-in-out alternate;
+}
+#b3 img,#b5 img,#b2 img{
+	animation: floatTop2 3s infinite ease-in-out alternate;
+	-webkit-animation: floatTop2 3s infinite ease-in-out alternate;
+}
+#b9 img,#b11 img,#b6 img{
+	animation: floatTop2 2.2s infinite ease-in-out alternate;
+	-webkit-animation: floatTop2 2.2s infinite ease-in-out alternate;
+}
+#cadeira img{
+	animation: floatTop3 3s infinite ease-in-out alternate;
+	-webkit-animation: floatTop3 3s infinite ease-in-out alternate;
+}
+#b4 img{
+	animation: floatTop3 2s infinite ease-in-out alternate;
+	-webkit-animation: floatTop3 2s infinite ease-in-out alternate;	
+}
+#escafandro{
+	width: 158px;
+	height: 253px;
+	left: 50%;
+	margin-left: -79px;
+	bottom: 0px;
+}
+
+#escafandro img{
+	display: block;
+	animation: floatTop 2s infinite ease-in-out alternate;
+	-webkit-animation: floatTop 2s infinite ease-in-out alternate;
+}
+
+#cadeira{
+	left: 50%;
+	margin-left: -40px;
+	bottom: -80px;
+	z-index: -2;
+}
+
+#b1{
+	top: 279px;
+	left: 146px;
+	z-index: 2;
+}
+
+#b2{
+	top: 0px;
+	left: 251px;
+	z-index: 1;
+}
+
+#b3{
+	top: 661px;
+	left: 336px;
+}
+
+#b4{
+	top: 154px;
+	left: 550px;
+}
+
+#b5{
+	top: 213px;
+	left: 717px;
+	z-index: 3;
+}
+
+#b6{
+	top: 456px;
+	left: 499px;
+	z-index: -1;
+}
+
+#b7{
+	top: 623px;
+	left: 583px;
+}
+
+#b8{
+	top: 559px;
+	left: 715px;
+}
+
+#b9{
+	top: 693px;
+	left: 673px;
+	z-index: -2;
+}
+
+#b10{
+	top: 759px;
+	left: 578px;
+}
+
+#b11{
+	top: 739px;
+	left: 448px;
+}
