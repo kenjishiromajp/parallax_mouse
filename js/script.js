@@ -37,18 +37,22 @@ function calcViewport(){
 function showButterflies(){
     $("#main").classList.remove("hidden-butterflies");
 }
-$("#main").classList.add("hidden-butterflies");
 
-window.onresize= function(){
-    calcViewport();
-}
-window.onload = function () {
-    $("body").addEventListener("mousemove", function (ev){
-        
-        var x = ev.pageX - parseInt(offset(this).left);
-        var y = ev.pageY - parseInt(offset(this).top);
-        var cWidth = this.offsetWidth;
-        var cHeight = this.offsetHeight;
+function handlePosition(ev){
+        var cWidth = $("body").offsetWidth;
+        var cHeight = $("body").offsetHeight;
+        var x=0,y=0;
+        if(ev instanceof MouseEvent){
+            x = ev.pageX - parseInt(offset(this).left);
+            y = ev.pageY - parseInt(offset(this).top);
+        }else{
+            y = (ev.beta-65)/25 * cHeight *-1 + (cHeight/2);
+            x = (ev.gamma)/25 * cWidth + (cWidth/2);
+            // console.log(y);
+            $(".gamma").innerHTML=x;
+            $(".beta").innerHTML=y;
+        }
+
 
         function calcPosition(porcentagemX,porcentagemY){
             var calc;
@@ -105,9 +109,18 @@ window.onload = function () {
         setPosition($("#b9"),9,9);
         setPosition($("#b10"),18,18);
         setPosition($("#b11"),12,18);
+        // console.log("foi!");
 
+}
 
-    });
+$("#main").classList.add("hidden-butterflies");
+
+window.onresize= function(){
+    calcViewport();
+}
+window.onload = function () {
+    window.addEventListener('deviceorientation', handlePosition);
+    $("body").addEventListener("mousemove", handlePosition);
     calcViewport();
     new Vivus('lettering', { duration: 200, type: "sync", animTimingFunction: Vivus.EASE_OUT }).play(_=>{
         showButterflies();

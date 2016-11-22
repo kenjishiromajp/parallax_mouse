@@ -273,4 +273,13 @@ body{
 }
 #lettering .shadow{
 	opacity: 0.5;
+	transform: translate(-390px,-290px) scale(1.4);
+}
+#teste {
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+}
+#teste *{
+	color: white;
 }
