@@ -30,7 +30,7 @@ function foreach(collection,callback){
 }
 
 function calcViewport(){
-    var scale = window.innerHeight/1140;
+    var scale = window.innerHeight/1360;
     setStyle($("#main .container"),{ transform: "translate(-50%,-50%) scale("+scale+")" });
 }
 
@@ -48,9 +48,6 @@ function handlePosition(ev){
         }else{
             y = (ev.beta-65)/25 * cHeight *-1 + (cHeight/2);
             x = (ev.gamma)/25 * cWidth + (cWidth/2);
-            // console.log(y);
-            $(".gamma").innerHTML=x;
-            $(".beta").innerHTML=y;
         }
 
 
