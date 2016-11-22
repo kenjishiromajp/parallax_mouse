@@ -76,10 +76,6 @@ function handlePosition(ev){
 
         }
 
-        foreach($a("#main .container > *"),el=>{
-            sa(el,"style", "");
-        });
-
 
 
         setPosition($("#shadow_path1"),4,6);
@@ -119,7 +115,7 @@ window.onload = function () {
     window.addEventListener('deviceorientation', handlePosition);
     $("body").addEventListener("mousemove", handlePosition);
     calcViewport();
-    new Vivus('lettering', { duration: 200, type: "sync", animTimingFunction: Vivus.EASE_OUT }).play(_=>{
+    new Vivus('lettering', { duration: 100, type: "sync", animTimingFunction: Vivus.EASE_OUT }).play(_=>{
         showButterflies();
     });
 };
